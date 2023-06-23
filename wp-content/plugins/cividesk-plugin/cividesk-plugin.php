@@ -24,7 +24,7 @@ function cividesk_mailer( &$phpmailer ) {
   $phpmailer->SMTPAuth   = true;  // Force it to use Username and Password to authenticate
   $phpmailer->Username   = $_SERVER['SMTP_USER'];
   $phpmailer->Password   = $_SERVER['SMTP_PASS'];
-  $phpmailer->From       = $_SERVER['SMTP_USER'];
+  $phpmailer->From       = isset($_SERVER['SMTP_FROM']) ? $_SERVER['SMTP_FROM'] : $_SERVER['SMTP_USER'];
   $phpmailer->FromName   = "Website Communications";
   $phpmailer->SetFrom( $phpmailer->From, $phpmailer->FromName );
   $phpmailer->SMTPAutoTLS = false;
